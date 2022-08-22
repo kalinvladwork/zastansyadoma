@@ -1,0 +1,17 @@
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: var(--step);
+  height: 100%;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-size: var(--font-size);
+  line-height: 150%;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: var(--second-color);
+  color: var(--base-color);
+}

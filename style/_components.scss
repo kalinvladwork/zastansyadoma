@@ -1,0 +1,151 @@
+.button {
+  color: var(--base-color);
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: var(--button-padding);
+  border: none;
+  background-color: transparent;
+  outline: 2px solid var(--accent-color);
+  transition: var(--transition-all);
+  cursor: pointer;
+
+  &:hover, &:active {
+    background-color: var(--accent-color);
+  }
+
+  &.is-accent {
+    color: var(--accent-color);
+    font-size: var(--font-size-more-small);
+    width: calc(100% - 20px);
+    padding: var(--button-padding-accent);
+
+
+    &:hover, &:active {
+      color: var(--base-color);
+      background-color: var(--accent-color);
+    }
+  }
+
+  &.is-black {
+    color: var(--second-color);
+    width: calc(100% - 20px);
+    background-color: var(--base-color);
+    outline: 2px solid var(--base-color);
+
+
+    &:hover, &:active {
+      color: var(--base-color);
+      background-color: var(--accent-color);
+      outline: 2px solid var(--accent-color);
+    }
+  }
+
+  @media (min-width: 768px) {
+    &.is-accent, &.is-black {
+      width: auto;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  color: var(--base-color);
+  text-decoration: none;
+  margin-left: var(--card-margin);
+
+  &.is-left {
+    margin-right: var(--card-margin);
+  }
+
+  &:hover .card-images img {
+    transform: scale(1.2)
+  }
+}
+
+.card-images {
+  position: relative;
+  overflow: hidden;
+  height: var(--card-images-height);
+  line-height: 0;
+
+  img {
+    height: auto;
+    width: 100%;
+    min-height: 160px;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition-all);
+  }
+
+  .card-images-date {
+    font-weight: 700;
+    line-height: normal;
+    padding: var(--card-images-date-padding);
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+  }
+
+  @media (min-width: 768px) {
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+.card-info {
+  margin: var(--card-info-margin);
+  line-height: 150%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  line-clamp: 4;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--pagination-padding);
+}
+
+.pagination-item {
+  font-size: var(--font-size-small);
+  color: var(--base-color);
+  line-height: normal;
+  text-decoration: none;
+  font-weight: 700;
+  margin: 0 15px;
+  transition: var(--transition-all);
+
+  &:hover, &:active {
+    color: var(--accent-color);
+  }
+
+  &.is-active {
+    padding: 6px 10px;
+    outline: 2px solid var(--base-color);
+
+    &:hover, &:active {
+      color: var(--base-color);
+    }
+  }
+}
+
+span.pagination-item:hover, span.pagination-item:active {
+  color: var(--base-color);
+}
+
+
