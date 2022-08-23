@@ -1,74 +1,70 @@
-.burger {
-  display: block;
-  position: fixed;
-  top: 23px;
-  right: 20px;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  border: 0;
-  outline: none;
-  background: transparent;
-  z-index: 10;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
+.header {
+  position: absolute;
+  top: 0;
 }
 
-.burger span {
+.burger-button {
+  display: block;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: var(--burger-button-size);
+  height: var(--burger-button-size);
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  outline: none;
+  background: #373737;
+  z-index: 10;
+}
+
+.burger-button span {
   position: absolute;
-  width: 100%;
+  width: calc(var(--burger-button-size) / 2);
   height: 2px;
-  background-color: var(--second-color);
-  top: 0;
-  left: 0;
+  background-color: var(--base-color);
+  top: 35%;
+  left: 25%;
   transition: opacity 0.5s, bottom 0.2s 0.2s, top 0.2s 0.2s, transform 0.2s 0.2s;
 }
 
-.burger.is-active span:nth-child(1) {
+.burger-button.is-active span:nth-child(1) {
   top: calc(50% - 1px);
   transform: rotate(3645deg);
   transform-origin: center;
 }
 
-span:nth-child(2) {
+.burger-button span:nth-child(2) {
   top: calc(50% - 1px);
 }
 
-.burger.is-active span:nth-child(2) {
+.burger-button.is-active span:nth-child(2) {
   opacity: 0;
   transform: rotateY(90deg);
 }
 
-span:nth-child(3) {
+.burger-button span:nth-child(3) {
   top: unset;
-  bottom: 0;
+  bottom: 35%;
 }
 
-.burger.is-active span:nth-child(3) {
+.burger-button.is-active span:nth-child(3) {
   bottom: calc(50% - 1px);
   transform: rotate(-3645deg);
   transform-origin: center;
 }
 
-.header-navigation {
-  display: none;
-  @media (min-width: 768px) {
-    display: block;
-  }
-}
-
 .burger-menu {
-  display: block;
-  height: 0;
-  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  height: 100vh;
+  width: 0;
   margin: 0;
   padding: 0;
   top: var(--header-height);
-  right: 0;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.64);;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.64);
   overflow: hidden;
   transition: height 0.5s;
 
@@ -78,7 +74,7 @@ span:nth-child(3) {
   }
 
   &.is-open {
-    height: 100vh;
+    width: 100%;
     overflow: visible;
 
     .burger-nav-item {
@@ -88,31 +84,35 @@ span:nth-child(3) {
 }
 
 .burger-header-navigation {
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: center;
-  padding: 0 10px 30px;
-  background: var(--base-color);
+  padding: 100px 10px 10px 10px;
+  background: #000000;
 
-  hr {
+  @media (min-width: 768px) {
     width: 100%;
-    background-color: #414141;
-    height: 1px;
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-  .burger-nav-item {
-    color: var(--second-color);
-    font-weight: 500;
-    text-decoration: none;
-    margin: 30px 25px 20px;
-    font-size: var(--font-size-more-small);
+    max-width: 375px;
+    padding: 150px 0 10px 30px;
   }
 
-  .button {
-    font-weight: 500;
-    width: 90%;
+  .burger-nav-item {
+    color: var(--base-color);
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    font-size: 20px;
+
+    @media (min-width: 768px) {
+      font-size: 24px;
+      margin: 0 0 30px;
+    }
+
+    &:hover {
+      color: var(--accent-color);
+    }
   }
 }

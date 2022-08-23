@@ -1,5 +1,5 @@
 (function () {
-    let burger = document.querySelector('.burger');
+    let burger = document.querySelector('.burger-button');
     let mobileMenu = document.querySelector('.burger-menu');
     burger.addEventListener('click', () => {
         burger.classList.toggle('is-active');
